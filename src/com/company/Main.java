@@ -2,15 +2,9 @@ package com.company;
 
 import javax.swing.*;
 import java.awt.*;
-import java.io.File;
-import java.io.IOException;
-import java.lang.reflect.InvocationTargetException;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.LinkedList;
 import java.util.List;
@@ -60,41 +54,6 @@ public class Main {
                     Login frame = new Login();
                 }
         );
-
-//        if (args.length < 1 || args[0].equals("help")) {
-//            System.err.println("Usage: SHA512 <input file> <debug level>");
-//            System.err.println("       Debug level description:");
-//            System.err.println("         0: No debugging - only the final hash is printed");
-//            System.err.println("         1: Minimal debugging - only the block hashes are printed");
-//            System.err.println("         2: Maximum debugging - W values and abcdefg for each round are printed");
-//            System.exit(-1);
-//        }
-//
-//        // If they provide a debug value, set it
-//        if (args.length > 1) {
-//            DEBUG = Integer.parseInt(args[1]);
-//        }
-//
-//        File inputFile = new File(args[0]);
-//
-//        if (!inputFile.isFile()) {
-//            System.err.println("Input file '" + args[0] + "' does not exist!");
-//            System.exit(-2);
-//        }
-//
-//        // Read the entire input file as UTF-8
-//        String input = new String(Files.readAllBytes(inputFile.toPath()), StandardCharsets.UTF_8);
-//
-//        // A strange bug occurs on Windows since it adds a carriage return as well as a newline
-//        // Thus we have to get rid of all carriage returns in the read input
-//        input = input.replaceAll("\r\n", "\n");
-
-        // Do the hash
-        //String hashed = Main.hash(input.getBytes());
-
-        // Print it out
-        //System.out.println(hashed);
-
     }
 
 
