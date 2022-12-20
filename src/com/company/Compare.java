@@ -18,6 +18,8 @@ public class Compare extends JFrame {
     private JTextArea textArea1;
     private JTextArea textArea2;
     private JButton buttonCompare;
+    private JTextField textField1;
+    private JTextField textField2;
     private String fileText1 = "";
     private String fileText2 = "";
 
@@ -37,7 +39,7 @@ public class Compare extends JFrame {
                 if (result == 0) {
                     try {
                         fileText1 = readFile(chooser.getSelectedFile());
-                        textArea1.setText(fileText1);
+                        //textArea1.setText(fileText1);
                     }
                     catch (IOException ex) {
                         JOptionPane.showMessageDialog(Compare.this, ex.getMessage());
@@ -64,19 +66,21 @@ public class Compare extends JFrame {
 
         buttonCompare.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                if(fileText1.length() == 0 || fileText2.length() == 0) {
-                    JOptionPane.showMessageDialog(Compare.this, "Требуется два непустых файла");
-                }
-                else {
+//                if(fileText1.length() == 0 || fileText2.length() == 0) {
+//                    JOptionPane.showMessageDialog(Compare.this, "Требуется два непустых файла");
+//                }
+                //else {
                     String hash1 = Main.hash(fileText1.getBytes());
                     String hash2 = Main.hash(fileText2.getBytes());
+                    textField1.setText(hash1);
+                    textField2.setText(hash2);
                     if(hash1.equals(hash2)) {
                         JOptionPane.showMessageDialog(Compare.this, "Файлы идентичны");
                     }
                     else {
                         JOptionPane.showMessageDialog(Compare.this, "Файлы различны");
                     }
-                }
+                //}
             }
         });
 

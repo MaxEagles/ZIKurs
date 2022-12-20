@@ -32,6 +32,8 @@ public class Main {
 
     public static void main(String[] args) throws Exception {
 
+        System.out.println(hash("Тест дял проверки".getBytes()));
+
         Class.forName("com.mysql.cj.jdbc.Driver").getDeclaredConstructor().newInstance();
 
         ResultSet resultSet = statement.executeQuery("SELECT * FROM store.users");

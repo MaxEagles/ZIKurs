@@ -80,7 +80,7 @@ public class Registration extends JFrame {
                         Main.users.add(new User(login, hash, salt));
                         JOptionPane.showMessageDialog(Registration.this, "Регистрация успешна");
                         setVisible(false);
-                        Login frame = new Login();
+                        Authorization frame = new Authorization();
                     } catch (SQLException ex) {
                         JOptionPane.showMessageDialog(Registration.this, "Ошибка при записи в базу данных");
                     }
