@@ -44,7 +44,6 @@ public class Main {
         while (resultSet.next()) {
             users.add(new User(resultSet.getString(2), resultSet.getString(3), resultSet.getString(4)));
             logins.add(resultSet.getString(2));
-            hashes.add(resultSet.getString(3));
         }
 
         EventQueue.invokeLater(() -> {

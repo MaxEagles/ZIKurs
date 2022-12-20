@@ -17,6 +17,7 @@ public class Authorization extends JFrame {
     public Authorization() {
         setContentPane(panel);
         setSize(800, 500);
+        setLocationRelativeTo(null);
         setTitle("Авторизация");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
@@ -40,11 +41,11 @@ public class Authorization extends JFrame {
                         Compare frame = new Compare();
                     }
                     else {
-                        JOptionPane.showMessageDialog(Authorization.this, "Неверный логин или пароль1");
+                        JOptionPane.showMessageDialog(Authorization.this, "Неверный логин или пароль");
                     }
                 }
                 else {
-                    JOptionPane.showMessageDialog(Authorization.this, "Неверный логин или пароль2");
+                    JOptionPane.showMessageDialog(Authorization.this, "Неверный логин или пароль");
                 }
             }
         });

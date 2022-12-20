@@ -34,6 +34,7 @@ public class Registration extends JFrame {
     public Registration() {
         setContentPane(panel);
         setSize(800, 500);
+        setLocationRelativeTo(null);
         setTitle("Регистрация");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
@@ -70,6 +71,7 @@ public class Registration extends JFrame {
                     saltBuilder.append(textFieldPassport.getText());
                     saltBuilder.append(textFieldIndex.getText());
                     String salt = saltBuilder.toString();
+                    salt = Main.hash((salt.getBytes()));
                     String input = Main.convertPassword(passwordField.getPassword()) + salt;
                     String hash = Main.hash(input.getBytes());
                     try {

@@ -1,6 +1,7 @@
 package com.company;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
@@ -23,15 +24,16 @@ public class Compare extends JFrame {
     public Compare() {
         setContentPane(panel);
         setSize(800, 500);
-        setTitle("Авторизация");
+        setTitle("Сравнение файлов");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setExtendedState(Frame.MAXIMIZED_BOTH);
         setVisible(true);
+
 
         buttonFile1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 TextFileChooser chooser = new TextFileChooser();
                 int result = chooser.showOpenDialog(Compare.this);
-                //если выбрали файл
                 if (result == 0) {
                     try {
                         fileText1 = readFile(chooser.getSelectedFile());
@@ -48,7 +50,6 @@ public class Compare extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 TextFileChooser chooser = new TextFileChooser();
                 int result = chooser.showOpenDialog(Compare.this);
-                //если выбрали файл
                 if (result == 0) {
                     try {
                         fileText2 = readFile(chooser.getSelectedFile());
