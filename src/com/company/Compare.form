@@ -32,6 +32,7 @@
         </constraints>
         <properties>
           <editable value="false"/>
+          <lineWrap value="false"/>
         </properties>
       </component>
       <component id="538fe" class="javax.swing.JTextArea" binding="textArea2" default-binding="true">

@@ -7,8 +7,6 @@ import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
 import java.util.Scanner;
 
 public class Compare extends JFrame {
@@ -22,6 +20,7 @@ public class Compare extends JFrame {
     private JTextField textField2;
     private String fileText1 = "";
     private String fileText2 = "";
+    private int maxLength = 700;
 
     public Compare() {
         setContentPane(panel);
@@ -39,7 +38,12 @@ public class Compare extends JFrame {
                 if (result == 0) {
                     try {
                         fileText1 = readFile(chooser.getSelectedFile());
-                        //textArea1.setText(fileText1);
+                        if(fileText1.length() > maxLength) {
+                            textArea1.setText(fileText1.substring(0, maxLength) + "...");
+                        }
+                        else {
+                            textArea1.setText(fileText1);
+                        }
                     }
                     catch (IOException ex) {
                         JOptionPane.showMessageDialog(Compare.this, ex.getMessage());
@@ -55,7 +59,12 @@ public class Compare extends JFrame {
                 if (result == 0) {
                     try {
                         fileText2 = readFile(chooser.getSelectedFile());
-                        textArea2.setText(fileText2);
+                        if(fileText2.length() > maxLength) {
+                            textArea2.setText(fileText2.substring(0, maxLength) + "...");
+                        }
+                        else {
+                            textArea2.setText(fileText2);
+                        }
                     }
                     catch (IOException ex) {
                         JOptionPane.showMessageDialog(Compare.this, ex.getMessage());
@@ -66,10 +75,6 @@ public class Compare extends JFrame {
 
         buttonCompare.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-//                if(fileText1.length() == 0 || fileText2.length() == 0) {
-//                    JOptionPane.showMessageDialog(Compare.this, "Требуется два непустых файла");
-//                }
-                //else {
                     String hash1 = Main.hash(fileText1.getBytes());
                     String hash2 = Main.hash(fileText2.getBytes());
                     textField1.setText(hash1);
@@ -80,7 +85,6 @@ public class Compare extends JFrame {
                     else {
                         JOptionPane.showMessageDialog(Compare.this, "Файлы различны");
                     }
-                //}
             }
         });
 
@@ -98,7 +102,7 @@ public class Compare extends JFrame {
             return sb.toString();
         }
         catch (IOException ex) {
-            throw new IOException("Файл пуст или его нельзя прочитать!");
+            throw new IOException("Ошибка при открытии файла");
         }
     }
 }

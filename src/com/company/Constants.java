@@ -1,8 +1,6 @@
 package com.company;
 
-// Constants used in the SHA512 project
 public class Constants {
-    // The intial buffer value
     protected static long[] IV = new long[] {
             0x6A09E667F3BCC908L,
             0xBB67AE8584CAA73BL,
@@ -14,7 +12,6 @@ public class Constants {
             0x5BE0CD19137E2179L
     };
 
-    // The constant words used in the algorithm
     protected static long[] K = new long[] {
             0x428A2F98D728AE22L, 0x7137449123EF65CDL, 0xB5C0FBCFEC4D3B2FL, 0xE9B5DBA58189DBBCL, 0x3956C25BF348B538L,
             0x59F111F1B605D019L, 0x923F82A4AF194F9BL, 0xAB1C5ED5DA6D8118L, 0xD807AA98A3030242L, 0x12835B0145706FBEL,
